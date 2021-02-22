@@ -1,0 +1,38 @@
+delimiter //
+create procedure getProduct(in pc int,in pa double,out pn varchar(15),out amt double,out dis double,out pd double,out pt double)
+begin
+declare oAmt double ;
+declare code int ;
+declare disc double;
+declare pname varchar(15);
+declare tAmt double;
+declare productCode int;
+
+set oAmt=pa;
+set productCode=pc;
+
+if productCode=1 then set pname='Mobile';
+if oAmt>=15000 then set disc=0.15;
+elseif (oAmt >= 5000 and oAmt < 15000) then set disc=0.1;
+else set disc = 0.05;
+end if;
+
+elseif productCode=2 then set pname='TV';
+if oAmt >= 20000 then set disc=0.15;
+elseif (oAmt >= 15000 and oAmt < 20000) then set disc=0.1;
+else set disc = 0;
+end if;
+
+elseif productCode=3 then set pname='Refrigerator';
+if oAmt >= 50000 then set disc=0.2;
+elseif ( oAmt >= 25000 and aAmt < 50000) then set disc=0.1;
+else set disc = 0;
+end if;
+
+end if;
+select pname as 'Product Name',oAmt as 'Order Amount',disc*100 as 'Discount (%)',disc*oAmt as 'Discount Amount',oAmt * (1-disc) as 'Net Order Amount';
+
+end//
+delimiter ;
+
+call getProduct(1,10000,@n,@a,@d,@da,@t);
