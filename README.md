@@ -1,4 +1,4 @@
-# PLSQL
+# PLSQL MySQL
 PLSQL code in MySQL 
 
 following codes are used to indicate them:-
