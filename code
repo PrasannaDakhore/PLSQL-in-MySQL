@@ -25,7 +25,7 @@ end if;
 
 elseif productCode=3 then set pname='Refrigerator';
 if oAmt >= 50000 then set disc=0.2;
-elseif ( oAmt >= 25000 and aAmt < 50000) then set disc=0.1;
+elseif ( oAmt >= 25000 and oAmt < 50000) then set disc=0.1;
 else set disc = 0;
 end if;
 
